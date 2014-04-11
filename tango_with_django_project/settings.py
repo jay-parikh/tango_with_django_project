@@ -1,18 +1,21 @@
 # Django settings for tango_with_django_project project.
 
 import os
+from os import path
 
-SETTINGS_DIR = os.path.dirname(__file__)
+SETTINGS_DIR = os.path.dirname(path.abspath(__file__))
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
+
+LOGIN_URL = '/rango/login/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -65,12 +68,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
