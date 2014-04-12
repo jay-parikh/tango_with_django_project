@@ -1,19 +1,31 @@
 # Django settings for tango_with_django_project project.
 
 import os
-from os import path
+SETTINGS_DIR = os.path.dirname(__file__)
 
-SETTINGS_DIR = os.path.dirname(path.abspath(__file__))
+# from os import path
+# SETTINGS_DIR = os.path.dirname(path.abspath(__file__))
+
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
-DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
+# DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
+
+# Sanity testing is carry out to check whether the bugs reported in previous build are fixed & there is regression introduced due to these fixes i.e. not breaking any previously working functionality. The main aim of Sanity testing to check the planned functionality is working as expected. Instead of doing whole regression testing the Sanity testing is perform.
+
+# Printing Paths for sanity's sake
+print "Settings directory:", SETTINGS_DIR
+print "Project root:", PROJECT_PATH
+print "Templates:", TEMPLATE_PATH
+print "Static:", STATIC_PATH
+print "DB:", DATABASE_PATH
 
 LOGIN_URL = '/rango/login/'
 

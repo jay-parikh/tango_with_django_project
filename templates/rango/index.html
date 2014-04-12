@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block body_block %}
-	
+<div class="hero-unit">
 	{% if user.is_authenticated %}
 
 	{% if categories %}
@@ -17,7 +17,7 @@
 	{% endif %}
 
 	{% endif %}
-	
+</div>	
 {% endblock %}
 <!-- <html>
 	<head>
