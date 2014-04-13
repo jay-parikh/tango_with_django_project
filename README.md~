@@ -9,4 +9,4 @@ development using python 2.7 and django 1.5
 
 Here i have used eclipse kepler as an ide for development purpose using pyDev eclipse plugin.
 
-Also the project was built using virtualenv python 2.7.x and django 1.5.x apart from this we also have used django debug app to debug code at runtime.
+Also the project was built using virtualenv python 2.7.x and django 1.5.x
