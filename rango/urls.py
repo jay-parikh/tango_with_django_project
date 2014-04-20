@@ -13,4 +13,8 @@ urlpatterns = patterns('',
                        url(r'^logout/$', views.user_logout, name='logout'),
                        url(r'^profile/$', views.profile, name='profile'),
                        url(r'^goto/$', views.track_url, name='track_url'),
-                       url(r'^search/$', views.search, name='search'),)
+                       url(r'^like_category/$', views.like_category, name='like_cateory'),
+                       url(r'^suggest_category/$', views.suggest_category, name='suggest_category'),
+                       url(r'^auto_add_page/$', views.auto_add_page, name='auto_add_page'),
+                       # url(r'^search/$', views.search, name='search'),
+                       )

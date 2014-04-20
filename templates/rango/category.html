@@ -5,6 +5,13 @@
 {% block body_block %}
 <div class="hero-unit">
 	<h1>{{ category_name }}</h1>
+	<p>
+		<b id="like_count">{{ category.likes }}</b> people like this category
+		
+		{% if user.is_authenticated %}
+			<button id="likes" data-catid="{{ category.id }}" class="btn btn-mini btn-primary" type="button">Like</button>			
+		{% endif %}
+	</p>
 	<div id="pages">	
 		{% if pages %}
 		<ul>
@@ -35,28 +42,35 @@
     <br/>
 
     <div class="container-fluid">
-        <form class="form-signin span8" id="user_form" method="post" action="/rango/search/">
+    	<p>Search for a page.</p>
+        <form class="form-search span8" id="search_form" method="post" action="/rango/category/{{ category_name_url }}/">
             {% csrf_token %}
             <!-- Display the search form elements here -->
-            <input type="text" size="50" name="query" value="" id="query" />
-            <button class="btn btn-primary" type="submit">Search</button>            
+            <input type="text" class="input-long search-query" name="query" value="{{ category_name}}" id="query" />
+            <button class="btn btn-success" name="submit" value="search" type="submit">Search</button>            
             <br />
         </form>
-
-        {% if result_list %}
+	</div>
+        
         <!-- Display search results in an ordered list -->
-        <div style="clear: both;">
-            <ol>
-            {% for result in result_list %}
-                <li>
-                    <strong><a href="{{ result.link }}">{{ result.title }}</a></strong><br />
-                    <em>{{ result.summary }}</em>
-                </li>
-            {% endfor %}
-            </ol>
-        </div>
-        {% endif %}
-    </div>
+        <div class="container-fluid" style="clear: both;">
+        	{% if result_list %}
+	            <ol>
+	            {% for result in result_list %}
+	                <li>
+	                {% if user.is_authenticated %}
+						<button data-catid="{{category.id}}" data-title="{{ result.title }}" data-url="{{ result.link }}" class="rango-add btn btn-mini btn-info" type="button">Add</button>
+					{% endif %}
+	                    <strong><a href="{{ result.link }}">{{ result.title }}</a></strong><br />
+	                    <em>{{ result.summary }}</em>
+	                </li>
+	            {% endfor %}
+	            </ol>
+	            {% else %}
+	            	<br/>
+	            	<p>No results found</p>
+        	{% endif %}        
+    	</div>
 </div>
 
 
